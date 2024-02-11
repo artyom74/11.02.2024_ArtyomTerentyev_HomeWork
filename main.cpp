@@ -1,6 +1,5 @@
-/* Пользователь вводит с клавиатуры время в секундах, прошедшее с начала дня. Вывести на экран текущее время в часах,
-минутах и секундах. Посчитать, сколько часов, минут и секунд
-осталось до полуночи. */
+/* Пользователь вводит с клавиатуры время в секундах, прошедшее с начала рабочего дня. Посчитать, сколько целых часов
+ему осталось работать если рабочий день — 8 часов. */
 
 #include <iostream> 
 #include <string>
@@ -9,27 +8,17 @@ using namespace std;
 int main() {
 	setlocale(LC_ALL, "ru");
 
-	int SecInput, hour, min, sec, hour1, min1, sec1, temp;
+	int SecInput, hour, difference;
 
-	cout << "Введите время в секундах: ";
+	cout << "Введите время прошедшее с начала рабочего дня в секундах: ";
 	cin >> SecInput;
-
-	hour = SecInput / 3600;
-	temp = SecInput % 3600;
-	min = temp / 60;
-	sec = temp % 60;
-
-	cout << "Сейчас:" << hour << "." << min << "." << sec << endl;
-
-	temp = 86400 - SecInput;
-	hour1 = temp / 3600;
-	temp = temp % 3600;
-	min1 = temp / 60;
-	sec1 = temp % 60;
-
-	cout << "Времени до вечера: " << hour1 << ".";
-	cout << min1 << "." << sec1 << endl;
 	
+	difference = 28800 - SecInput;
+	hour = difference / 3600;
+
+	cout << "До конца рабочего дня осталось: ";
+	cout << hour << "\n";
+
 	return 0;
 }
 
